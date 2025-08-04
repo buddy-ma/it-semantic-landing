@@ -16,8 +16,8 @@
   );
   background-image: linear-gradient(
     90deg,
-    rgba(255, 191, 24, 0.5),
-    rgba(245, 158, 11, 0.5)
+    rgba(163, 24, 255, 0.5),
+    rgba(11, 158, 245, 0.5)
   );
   filter: hue-rotate(0deg);
 }
@@ -39,8 +39,8 @@
 .background-white-pattern {
   position: absolute;
   inset: 0px;
-  background-image: url("/svgs/yellow-pattern.svg");
-  opacity: 0.1;
+  background-image: url("/svgs/pattern-white.svg");
+  opacity: 0.2;
   background-repeat: repeat;
   background-position: right top;
   background-size: 20px, 20px;
@@ -48,7 +48,7 @@
 }
 
 .dark .background-white-pattern {
-  background-image: url("/svgs/yellow-pattern.svg");
+  background-image: url("/svgs/pattern.svg");
 }
 
 @keyframes pulse-glow {

@@ -8,15 +8,9 @@ export default function Hero() {
   return (
     <section id="home" className=" min-h-screen container max-w-7xl mx-auto">
       <div className="flex flex-col items-center justify-center h-full">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          {/* Main Hero Container */}
-          <div className="absolute inset-0 z-0" style={{ overflowX: "clip" }}>
-            <div className="background-gradient">
-              <div className="background-gradient-pattern"></div>
-            </div>
-          </div>
-          <div className="bg-primary dark:bg-slate-800/30 rounded-3xl border border-white/20 dark:border-slate-600/30 p-8 sm:p-12 lg:p-16">
-            <div className="text-center">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="bg-primary relative overflow-hidden dark:bg-slate-800/30 rounded-3xl border border-white/20 dark:border-slate-600/30 p-8 sm:p-12 lg:p-16">
+            <div className="text-center z-10 relative">
               <div className="mb-6">
                 <span className="inline-block px-4 py-2 bg-white/20 dark:bg-slate-700/50 backdrop-blur-sm rounded-full text-white text-sm font-medium">
                   🚀 Digitale Transformation leicht gemacht
@@ -108,6 +102,10 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
+            </div>
+            {/* Main Hero Container */}
+            <div className="absolute inset-0 z-0" style={{ overflowX: "clip" }}>
+              <div className="background-white-pattern"></div>
             </div>
           </div>
 
