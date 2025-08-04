@@ -1,4 +1,9 @@
+'use client';
+
+import { useLanguage } from './LanguageProvider';
+
 export default function WhyUs() {
+  const { t } = useLanguage();
   const benefits = [
     {
       icon: '🎯',
@@ -18,14 +23,14 @@ export default function WhyUs() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Warum IT Semantic?
+            {t('whyUs.title')}
           </h2>
           <p className="text-xl text-secondary max-w-3xl mx-auto">
-            Mehr als nur Berater – wir sind Ihr langfristiger Technologiepartner.
+            {t('whyUs.subtitle')}
           </p>
         </div>
 
@@ -46,7 +51,7 @@ export default function WhyUs() {
         </div>
 
         {/* Additional stats or certifications */}
-        <div className="mt-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8">
+        <div className="mt-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 dark:from-slate-800/50 dark:via-slate-700/50 dark:to-slate-800/50 rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-2xl font-bold text-primary mb-2">ISO 27001</div>

@@ -1,4 +1,9 @@
+'use client';
+
+import { useLanguage } from './LanguageProvider';
+
 export default function Services() {
+  const { t } = useLanguage();
   const services = [
     {
       title: 'KI & Machine Learning',
@@ -39,15 +44,14 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section id="services" className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Unsere Leistungen
+            {t('services.title')}
           </h2>
           <p className="text-xl text-secondary max-w-3xl mx-auto">
-            Von strategischer IT-Beratung bis zur KI-basierten Umsetzung – wir begleiten Sie 
-            ganzheitlich in Ihrer digitalen Entwicklung.
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -55,7 +59,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-border"
+              className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg dark:shadow-2xl hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 dark:border-slate-700"
             >
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold text-foreground mb-3">

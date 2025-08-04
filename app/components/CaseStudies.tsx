@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from './LanguageProvider';
 
 export default function CaseStudies() {
+  const { t } = useLanguage();
   const caseStudies = [
     {
       company: 'ZEISS',
@@ -29,14 +33,14 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section id="case-studies" className="py-20 bg-muted">
+    <section id="case-studies" className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Erfolge unserer Kunden
+            {t('caseStudies.title')}
           </h2>
           <p className="text-xl text-secondary max-w-3xl mx-auto">
-            Entdecken Sie, wie wir Unternehmen dabei geholfen haben, ihre digitalen Ziele zu erreichen.
+            {t('caseStudies.subtitle')}
           </p>
         </div>
 
@@ -44,7 +48,7 @@ export default function CaseStudies() {
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg dark:shadow-2xl hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 dark:border-slate-700"
             >
               <div className="p-8">
                 <div className="flex items-center mb-4">

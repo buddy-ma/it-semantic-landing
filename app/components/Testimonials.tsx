@@ -1,0 +1,95 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useLanguage } from './LanguageProvider';
+
+export default function Testimonials() {
+  const { t } = useLanguage();
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "IT Semantic hat uns dabei geholfen, unsere Datenanalyse-Prozesse zu revolutionieren. Die KI-Lösungen haben unsere Effizienz um 300% gesteigert.",
+      author: "Dr. Sarah Mueller",
+      role: "CTO",
+      company: "TechCorp GmbH",
+    },
+    {
+      quote: "Die Cloud-Migration war nahtlos und professionell. Unser System läuft jetzt stabiler denn je und die Kosten sind um 40% gesunken.",
+      author: "Michael Weber",
+      role: "IT-Leiter",
+      company: "InnovateTech AG",
+    },
+    {
+      quote: "Das Team von IT Semantic versteht nicht nur Technologie, sondern auch unser Business. Die Lösungen sind praxisnah und zukunftssicher.",
+      author: "Lisa Schmidt",
+      role: "Head of Digital Innovation",
+      company: "FutureWorks Ltd.",
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            {t('testimonials.title')}
+          </h2>
+        </div>
+
+        <div className="relative">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl dark:shadow-2xl p-8 sm:p-12 border border-slate-200 dark:border-slate-700">
+            <div className="text-center">
+              <svg className="w-12 h-12 text-primary/20 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+              </svg>
+              
+              <blockquote className="text-xl sm:text-2xl text-foreground mb-8 leading-relaxed italic">
+                "{testimonials[currentTestimonial].quote}"
+              </blockquote>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-lg">
+                    {testimonials[currentTestimonial].author.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <div className="font-semibold text-foreground text-lg">
+                  {testimonials[currentTestimonial].author}
+                </div>
+                <div className="text-secondary">
+                  {testimonials[currentTestimonial].role}
+                </div>
+                <div className="text-primary font-medium">
+                  {testimonials[currentTestimonial].company}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation dots */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentTestimonial ? 'bg-primary' : 'bg-secondary/30'
+                }`}
+                aria-label={`Testimonial ${index + 1} anzeigen`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

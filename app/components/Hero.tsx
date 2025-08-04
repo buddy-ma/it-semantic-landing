@@ -1,59 +1,121 @@
-import Link from 'next/link';
+"use client";
+
+import Link from "next/link";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-br from-muted via-white to-muted pt-16 pb-20 sm:pt-24 sm:pb-32">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Ihr IT-Partner für{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-              digitale Transformation
-            </span>
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-secondary max-w-4xl mx-auto mb-10 leading-relaxed">
-            Wir unterstützen innovative Unternehmen dabei, sichere, skalierbare IT-Lösungen 
-            mit Daten, KI und Cloud-Technologien zu gestalten und umzusetzen.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="#contact"
-              className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 hover:shadow-lg w-full sm:w-auto"
-            >
-              Kostenloses Erstgespräch buchen
-            </Link>
-            <Link
-              href="#services"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all w-full sm:w-auto"
-            >
-              Unser Vorgehen ansehen
-            </Link>
+    <section id="home" className=" min-h-screen container max-w-7xl mx-auto">
+      <div className="flex flex-col items-center justify-center h-full">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          {/* Main Hero Container */}
+          <div className="absolute inset-0 z-0" style={{ overflowX: "clip" }}>
+            <div className="background-gradient">
+              <div className="background-gradient-pattern"></div>
+            </div>
           </div>
-        </div>
+          <div className="bg-primary dark:bg-slate-800/30 rounded-3xl border border-white/20 dark:border-slate-600/30 p-8 sm:p-12 lg:p-16">
+            <div className="text-center">
+              <div className="mb-6">
+                <span className="inline-block px-4 py-2 bg-white/20 dark:bg-slate-700/50 backdrop-blur-sm rounded-full text-white text-sm font-medium">
+                  🚀 Digitale Transformation leicht gemacht
+                </span>
+              </div>
 
-        {/* Stats or key metrics */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">500+</div>
-            <div className="text-secondary">Erfolgreiche Projekte</div>
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+                {t("hero.title")}
+              </h1>
+
+              <p className="text-xl sm:text-2xl text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed">
+                {t("hero.subtitle")}
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                <Link
+                  href="#contact"
+                  className="group bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-xl text-lg font-semibold transition-all transform hover:scale-105 hover:shadow-2xl w-full sm:w-auto flex items-center justify-center space-x-2"
+                >
+                  <span>{t("hero.cta")}</span>
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+                <Link
+                  href="#services"
+                  className="group border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 rounded-xl text-lg font-semibold transition-all w-full sm:w-auto flex items-center justify-center space-x-2"
+                >
+                  <span>{t("hero.ctaSecondary")}</span>
+                  <svg
+                    className="w-5 h-5 group-hover:translate-y-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Enhanced Stats */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="bg-white/10 dark:bg-slate-800/40 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-slate-600/40 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all group">
+                  <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">
+                    500+
+                  </div>
+                  <div className="text-blue-200 dark:text-slate-300">
+                    Erfolgreiche Projekte
+                  </div>
+                  <div className="text-xs text-blue-300 dark:text-slate-400 mt-1">
+                    Seit 2009
+                  </div>
+                </div>
+                <div className="bg-white/10 dark:bg-slate-800/40 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-slate-600/40 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all group">
+                  <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">
+                    15+
+                  </div>
+                  <div className="text-blue-200 dark:text-slate-300">
+                    Jahre Erfahrung
+                  </div>
+                  <div className="text-xs text-blue-300 dark:text-slate-400 mt-1">
+                    Bewährte Expertise
+                  </div>
+                </div>
+                <div className="bg-white/10 dark:bg-slate-800/40 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-slate-600/40 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all group">
+                  <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">
+                    98%
+                  </div>
+                  <div className="text-blue-200 dark:text-slate-300">
+                    Kundenzufriedenheit
+                  </div>
+                  <div className="text-xs text-blue-300 dark:text-slate-400 mt-1">
+                    Nachgewiesene Qualität
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">15+</div>
-            <div className="text-secondary">Jahre Erfahrung</div>
-          </div>
-          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">98%</div>
-            <div className="text-secondary">Kundenzufriedenheit</div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
       </div>
