@@ -1,14 +1,25 @@
 "use client";
 
+import {
+  BarChart2,
+  Bot,
+  Building2,
+  Check,
+  Cloud,
+  Lock,
+  Settings,
+} from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 
 export default function Services() {
   const { t } = useLanguage();
+  // Fix: Use a unique key for each service, not the translated title (which may not be unique or stable)
   const services = [
     {
+      key: "ai",
       title: t("services.ai.title"),
       description: t("services.ai.description"),
-      icon: "🤖",
+      icon: <Bot className="w-8 h-8 text-white" />,
       features: [
         t("services.ai.features.predictive"),
         t("services.ai.features.vision"),
@@ -17,9 +28,10 @@ export default function Services() {
       ],
     },
     {
+      key: "cloud",
       title: t("services.cloud.title"),
       description: t("services.cloud.description"),
-      icon: "☁️",
+      icon: <Cloud className="w-8 h-8 text-white" />,
       features: [
         t("services.cloud.features.multiCloud"),
         t("services.cloud.features.containers"),
@@ -28,9 +40,10 @@ export default function Services() {
       ],
     },
     {
+      key: "data",
       title: t("services.data.title"),
       description: t("services.data.description"),
-      icon: "📊",
+      icon: <BarChart2 className="w-8 h-8 text-white" />,
       features: [
         t("services.data.features.warehousing"),
         t("services.data.features.realtime"),
@@ -39,9 +52,10 @@ export default function Services() {
       ],
     },
     {
+      key: "strategy",
       title: t("services.strategy.title"),
       description: t("services.strategy.description"),
-      icon: "🏗️",
+      icon: <Building2 className="w-8 h-8 text-white" />,
       features: [
         t("services.strategy.features.architecture"),
         t("services.strategy.features.roadmaps"),
@@ -50,9 +64,10 @@ export default function Services() {
       ],
     },
     {
+      key: "security",
       title: t("services.security.title"),
       description: t("services.security.description"),
-      icon: "🔒",
+      icon: <Lock className="w-8 h-8 text-white" />,
       features: [
         t("services.security.features.assessment"),
         t("services.security.features.gdpr"),
@@ -61,9 +76,10 @@ export default function Services() {
       ],
     },
     {
+      key: "devops",
       title: t("services.devops.title"),
       description: t("services.devops.description"),
-      icon: "⚙️",
+      icon: <Settings className="w-8 h-8 text-white" />,
       features: [
         t("services.devops.features.cicd"),
         t("services.devops.features.iac"),
@@ -98,12 +114,14 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
-              key={service.title}
+              key={service.key}
               className="group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 dark:border-slate-700"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
+              <div className="text-4xl mb-4 inline-flex items-center justify-start bg-primary rounded-xl p-3">
+                {service.icon}
+              </div>
               <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
@@ -116,17 +134,7 @@ export default function Services() {
                     key={featureIndex}
                     className="flex items-center text-sm text-secondary"
                   >
-                    <svg
-                      className="w-4 h-4 text-primary mr-2 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Check className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}

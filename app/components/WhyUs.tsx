@@ -1,24 +1,25 @@
 "use client";
 
+import { RefreshCw, Rocket, Target } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 
 export default function WhyUs() {
   const { t } = useLanguage();
   const benefits = [
     {
-      icon: "🎯",
+      icon: <Target className="w-8 h-8 text-primary" />,
       title: "Erprobte Branchenerfahrung",
       description:
         "Über 15 Jahre Erfahrung in verschiedenen Branchen von Automotive bis FinTech. Wir verstehen Ihre spezifischen Herausforderungen und Anforderungen.",
     },
     {
-      icon: "🚀",
+      icon: <Rocket className="w-8 h-8 text-primary" />,
       title: "Agile & interdisziplinäre Teams",
       description:
         "Unsere crossfunktionalen Teams arbeiten nach agilen Methoden und bringen Expertise aus Entwicklung, Design, DevOps und Business zusammen.",
     },
     {
-      icon: "🔄",
+      icon: <RefreshCw className="w-8 h-8 text-primary" />,
       title: "360°-Begleitung von Idee bis Umsetzung",
       description:
         "Von der ersten Strategieberatung über die Entwicklung bis zum produktiven Betrieb – wir sind Ihr Partner für den gesamten Digitalisierungsprozess.",
@@ -53,7 +54,9 @@ export default function WhyUs() {
               data-aos-delay={index * 150 + 200}
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl mb-6">
-                <span className="text-3xl">{benefit.icon}</span>
+                <span className="text-3xl flex items-center justify-center">
+                  {benefit.icon}
+                </span>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 {benefit.title}

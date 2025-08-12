@@ -108,6 +108,9 @@ const translations = {
     "testimonials.title": "Was unsere Kunden sagen",
     "testimonials.subtitle":
       "Erfahren Sie, wie wir anderen Unternehmen geholfen haben",
+    "testimonials.heading.line1": "NEHMEN SIE NICHT NUR UNSER WORT DAFÜR.",
+    "testimonials.heading.line2":
+      "SIE FANDEN VERIFIZIERTE DATEN MIT IT SEMANTIC.",
     "testimonials.quotes.quote1":
       "IT Semantic hat uns dabei geholfen, unsere Datenanalyse-Prozesse zu revolutionieren. Die KI-Lösungen haben unsere Effizienz um 300% gesteigert.",
     "testimonials.quotes.quote2":
@@ -123,6 +126,10 @@ const translations = {
     "testimonials.companies.company1": "TechCorp GmbH",
     "testimonials.companies.company2": "InnovateTech AG",
     "testimonials.companies.company3": "FutureWorks Ltd.",
+    "testimonials.stats.stat1": "Steigerung der Trial-Konversion",
+    "testimonials.stats.stat2": "Kostenreduzierung",
+    "testimonials.stats.stat3": "Effizienzsteigerung",
+    "testimonials.cta": "Weitere Kundenstorys",
 
     // CTA
     "cta.title": "Lassen Sie uns über Ihr Projekt sprechen",
@@ -256,6 +263,8 @@ const translations = {
     // Testimonials
     "testimonials.title": "What Our Clients Say",
     "testimonials.subtitle": "Learn how we have helped other companies",
+    "testimonials.heading.line1": "DON'T JUST TAKE OUR WORD FOR IT.",
+    "testimonials.heading.line2": "YOU FOUND VERIFIED DATA WITH IT SEMANTIC.",
     "testimonials.quotes.quote1":
       "IT Semantic helped us revolutionize our data analysis processes. The AI solutions have increased our efficiency by 300%.",
     "testimonials.quotes.quote2":
@@ -271,6 +280,10 @@ const translations = {
     "testimonials.companies.company1": "TechCorp GmbH",
     "testimonials.companies.company2": "InnovateTech AG",
     "testimonials.companies.company3": "FutureWorks Ltd.",
+    "testimonials.stats.stat1": "Trial Conversion Rate Increase",
+    "testimonials.stats.stat2": "Cost Reduction",
+    "testimonials.stats.stat3": "Efficiency Increase",
+    "testimonials.cta": "More Customer Stories",
 
     // CTA
     "cta.title": "Let's Talk About Your Project",
