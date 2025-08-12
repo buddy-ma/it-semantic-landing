@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AOSProvider } from "./components/AOSProvider";
 import { LanguageProvider } from "./components/LanguageProvider";
 import { LanguageScript } from "./components/LanguageScript";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -15,12 +16,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "IT Semantic - Ihr IT-Partner für digitale Transformation",
-  description: "Wir unterstützen innovative Unternehmen dabei, sichere, skalierbare IT-Lösungen mit Daten, KI und Cloud-Technologien zu gestalten und umzusetzen.",
-  keywords: "IT-Beratung, Digitale Transformation, KI, Machine Learning, Cloud-Lösungen, Daten Analytics, IT-Strategie, IT-Sicherheit",
+  description:
+    "Wir unterstützen innovative Unternehmen dabei, sichere, skalierbare IT-Lösungen mit Daten, KI und Cloud-Technologien zu gestalten und umzusetzen.",
+  keywords:
+    "IT-Beratung, Digitale Transformation, KI, Machine Learning, Cloud-Lösungen, Daten Analytics, IT-Strategie, IT-Sicherheit",
   authors: [{ name: "IT Semantic" }],
   openGraph: {
     title: "IT Semantic - Ihr IT-Partner für digitale Transformation",
-    description: "Wir unterstützen innovative Unternehmen dabei, sichere, skalierbare IT-Lösungen mit Daten, KI und Cloud-Technologien zu gestalten und umzusetzen.",
+    description:
+      "Wir unterstützen innovative Unternehmen dabei, sichere, skalierbare IT-Lösungen mit Daten, KI und Cloud-Technologien zu gestalten und umzusetzen.",
     type: "website",
     locale: "de_DE",
   },
@@ -35,20 +39,18 @@ export default function RootLayout({
     <html lang="de" suppressHydrationWarning>
       <head>
         <ThemeScript storageKey="it-semantic-theme" />
-        <LanguageScript storageKey="it-semantic-language" defaultLanguage="de" />
+        <LanguageScript
+          storageKey="it-semantic-language"
+          defaultLanguage="de"
+        />
       </head>
-      <body
-        className={`${inter.variable} font-sans antialiased`}
-      >
-        <ThemeProvider
-          defaultTheme="system"
-          storageKey="it-semantic-theme"
-        >
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <ThemeProvider defaultTheme="system" storageKey="it-semantic-theme">
           <LanguageProvider
             defaultLanguage="de"
             storageKey="it-semantic-language"
           >
-            {children}
+            <AOSProvider>{children}</AOSProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

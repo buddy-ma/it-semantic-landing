@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,14 +38,23 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div
+            className="flex-shrink-0"
+            data-aos="fade-down"
+            data-aos-duration="600"
+          >
             <Link href="/">
               <img src="/logo.png" alt="Logo it semantic" className="w-48" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
+          <div
+            className="hidden lg:block"
+            data-aos="fade-down"
+            data-aos-delay="200"
+            data-aos-duration="600"
+          >
             <div className="ml-10 flex items-baseline space-x-8">
               {navigation.map((item) => (
                 <Link
@@ -61,25 +71,7 @@ export default function Header() {
           {/* Theme Toggle, Language Switcher & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <ThemeToggle />
-            <div className="flex items-center space-x-2 text-sm">
-              <button
-                onClick={() => setLanguage("de")}
-                className={`font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-primary`}
-              >
-                DE
-              </button>
-              <span
-                className={`transition-colors text-slate-500 dark:text-slate-400`}
-              >
-                |
-              </span>
-              <button
-                onClick={() => setLanguage("en")}
-                className={`font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-primary`}
-              >
-                EN
-              </button>
-            </div>
+            <LanguageToggle />
             <Link
               href="#contact"
               className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
@@ -149,9 +141,8 @@ export default function Header() {
                         : "text-slate-600 dark:text-slate-300 hover:text-primary"
                     }`}
                   >
-                    DE
+                    🇩🇪 DE
                   </button>
-                  <span className="text-slate-500 dark:text-slate-400">|</span>
                   <button
                     onClick={() => setLanguage("en")}
                     className={`font-medium transition-colors ${
@@ -160,7 +151,7 @@ export default function Header() {
                         : "text-slate-600 dark:text-slate-300 hover:text-primary"
                     }`}
                   >
-                    EN
+                    🇺🇸 EN
                   </button>
                 </div>
                 <Link

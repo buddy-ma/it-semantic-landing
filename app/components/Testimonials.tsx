@@ -9,25 +9,22 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      quote:
-        "IT Semantic hat uns dabei geholfen, unsere Datenanalyse-Prozesse zu revolutionieren. Die KI-Lösungen haben unsere Effizienz um 300% gesteigert.",
-      author: "Dr. Sarah Mueller",
-      role: "CTO",
-      company: "TechCorp GmbH",
+      quote: t("testimonials.quotes.quote1"),
+      author: t("testimonials.authors.author1"),
+      role: t("testimonials.roles.role1"),
+      company: t("testimonials.companies.company1"),
     },
     {
-      quote:
-        "Die Cloud-Migration war nahtlos und professionell. Unser System läuft jetzt stabiler denn je und die Kosten sind um 40% gesunken.",
-      author: "Michael Weber",
-      role: "IT-Leiter",
-      company: "InnovateTech AG",
+      quote: t("testimonials.quotes.quote2"),
+      author: t("testimonials.authors.author2"),
+      role: t("testimonials.roles.role2"),
+      company: t("testimonials.companies.company2"),
     },
     {
-      quote:
-        "Das Team von IT Semantic versteht nicht nur Technologie, sondern auch unser Business. Die Lösungen sind praxisnah und zukunftssicher.",
-      author: "Lisa Schmidt",
-      role: "Head of Digital Innovation",
-      company: "FutureWorks Ltd.",
+      quote: t("testimonials.quotes.quote3"),
+      author: t("testimonials.authors.author3"),
+      role: t("testimonials.roles.role3"),
+      company: t("testimonials.companies.company3"),
     },
   ];
 
@@ -43,13 +40,20 @@ export default function Testimonials() {
     <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+            data-aos="fade-up"
+          >
             {t("testimonials.title")}
           </h2>
         </div>
 
         <div className="relative">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl dark:shadow-2xl p-8 sm:p-12 border border-slate-200 dark:border-slate-700">
+          <div
+            className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl dark:shadow-2xl p-8 sm:p-12 border border-slate-200 dark:border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="text-center">
               <svg
                 className="w-12 h-12 text-primary/20 mx-auto mb-6"

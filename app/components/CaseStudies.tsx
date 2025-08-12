@@ -1,46 +1,59 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useLanguage } from './LanguageProvider';
+import Link from "next/link";
+import { useLanguage } from "./LanguageProvider";
 
 export default function CaseStudies() {
   const { t } = useLanguage();
   const caseStudies = [
     {
-      company: 'ZEISS',
-      title: 'KI-basierte Qualitätskontrolle',
-      description: 'Implementierung eines Machine Learning Systems zur automatischen Defekterkennung in der Produktion.',
-      result: '40% Reduktion der Ausschussrate',
-      category: 'Manufacturing',
-      image: '🔬',
+      company: "ZEISS",
+      title: "KI-basierte Qualitätskontrolle",
+      description:
+        "Implementierung eines Machine Learning Systems zur automatischen Defekterkennung in der Produktion.",
+      result: "40% Reduktion der Ausschussrate",
+      category: "Manufacturing",
+      image: "🔬",
     },
     {
-      company: 'Lufthansa',
-      title: 'Cloud-Migration & Skalierung',
-      description: 'Migration kritischer Systeme in die Cloud mit verbesserter Performance und Kosteneffizienz.',
-      result: '60% Kosteneinsparung',
-      category: 'Aviation',
-      image: '✈️',
+      company: "Lufthansa",
+      title: "Cloud-Migration & Skalierung",
+      description:
+        "Migration kritischer Systeme in die Cloud mit verbesserter Performance und Kosteneffizienz.",
+      result: "60% Kosteneinsparung",
+      category: "Aviation",
+      image: "✈️",
     },
     {
-      company: 'Sennheiser',
-      title: 'IoT-Datenanalyse Platform',
-      description: 'Entwicklung einer Real-time Analytics Plattform für IoT-Sensordaten in Audio-Geräten.',
-      result: '3x schnellere Insights',
-      category: 'Audio Technology',
-      image: '🎧',
+      company: "Sennheiser",
+      title: "IoT-Datenanalyse Platform",
+      description:
+        "Entwicklung einer Real-time Analytics Plattform für IoT-Sensordaten in Audio-Geräten.",
+      result: "3x schnellere Insights",
+      category: "Audio Technology",
+      image: "🎧",
     },
   ];
 
   return (
-    <section id="case-studies" className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <section
+      id="case-studies"
+      className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            {t('caseStudies.title')}
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+            data-aos="fade-up"
+          >
+            {t("caseStudies.title")}
           </h2>
-          <p className="text-xl text-secondary max-w-3xl mx-auto">
-            {t('caseStudies.subtitle')}
+          <p
+            className="text-xl text-secondary max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            {t("caseStudies.subtitle")}
           </p>
         </div>
 
@@ -49,29 +62,37 @@ export default function CaseStudies() {
             <div
               key={index}
               className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg dark:shadow-2xl hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 dark:border-slate-700"
+              data-aos="fade-up"
+              data-aos-delay={index * 150 + 200}
             >
               <div className="p-8">
                 <div className="flex items-center mb-4">
                   <span className="text-3xl mr-3">{study.image}</span>
                   <div>
-                    <div className="font-semibold text-foreground">{study.company}</div>
-                    <div className="text-sm text-secondary">{study.category}</div>
+                    <div className="font-semibold text-foreground">
+                      {study.company}
+                    </div>
+                    <div className="text-sm text-secondary">
+                      {study.category}
+                    </div>
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {study.title}
                 </h3>
-                
+
                 <p className="text-secondary mb-4 leading-relaxed">
                   {study.description}
                 </p>
-                
+
                 <div className="bg-gradient-to-r from-primary/10 to-primary/20 rounded-lg p-4 mb-4">
                   <div className="text-sm text-secondary mb-1">Ergebnis</div>
-                  <div className="font-semibold text-primary">{study.result}</div>
+                  <div className="font-semibold text-primary">
+                    {study.result}
+                  </div>
                 </div>
-                
+
                 <button className="text-primary hover:text-primary-dark font-medium text-sm transition-colors">
                   Fallstudie lesen →
                 </button>
@@ -86,8 +107,18 @@ export default function CaseStudies() {
             className="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Alle Fallstudien ansehen
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="ml-2 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </Link>
         </div>

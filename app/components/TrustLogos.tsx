@@ -11,13 +11,15 @@ export default function TrustLogos() {
   ];
 
   return (
-    <section className="pb-16">
+    <section className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-          {companies.map((company) => (
+          {companies.map((company, index) => (
             <div
               key={company.name}
               className="flex items-center justify-center h-16 w-full opacity-60 hover:opacity-100 transition-opacity"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <Image
                 src={company.logo}
